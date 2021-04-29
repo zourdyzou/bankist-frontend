@@ -1,0 +1,120 @@
+/* OPERATIONS */
+.operations {
+  max-width: 100rem;
+  margin: 12rem auto 0 auto;
+
+  background-color: #fff;
+
+  &__tab-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__tab {
+    margin-right: 2.5rem;
+    transform: translateY(-50%);
+  }
+
+  &__tab span {
+    margin-right: 1rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  // &__tab--1 {
+  //   background-color: $color-secondary;
+  // }
+
+  // &__tab--1:hover {
+  //   background-color: $color-secondary-darker;
+  // }
+
+  // &__tab--3 {
+  //   background-color: $color-tertiary;
+  //   margin: 0;
+  // }
+
+  // &__tab--3:hover {
+  //   background-color: $color-tertiary-darker;
+  // }
+
+  &__tab--active {
+    transform: translateY(-66%);
+  }
+
+  &__content {
+    display: none;
+
+    /* JUST PRESENTATIONAL */
+    font-size: 1.7rem;
+    padding: 2.5rem 7rem 6.5rem 7rem;
+  }
+
+  &__content--active {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    column-gap: 3rem;
+    row-gap: 0.5rem;
+    position: relative;
+
+    @include responds(phone) {
+      display: block;
+      padding-top: 9rem;
+    }
+  }
+
+  &__header {
+    font-size: 2.25rem;
+    font-weight: 500;
+    align-self: center;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    @include responds(phone) {
+      position: absolute;
+      top: 7%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 8rem;
+      width: 8rem;
+    }
+  }
+
+  &__icon svg {
+    height: 2.75rem;
+    width: 2.75rem;
+    @include responds(phone) {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  &__content p {
+    grid-column: 2;
+  }
+
+  &__icon--1 {
+    background-color: $color-secondary-opacity;
+  }
+  &__icon--2 {
+    background-color: $color-primary-opacity;
+  }
+  &__icon--3 {
+    background-color: $color-tertiary-opacity;
+  }
+  &__icon--1 svg {
+    fill: $color-secondary-darker;
+  }
+  &__icon--2 svg {
+    fill: $color-primary;
+  }
+  &__icon--3 svg {
+    fill: $color-tertiary;
+  }
+}

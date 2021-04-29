@@ -1,0 +1,11 @@
+/* SIGNUP */
+.section--sign-up {
+  background-color: #37383d;
+  border-top: none;
+  border-bottom: 1px solid #444;
+  text-align: center;
+  padding: 10rem 3rem;
+  @include responds(phoneX) {
+    padding: 10rem 0;
+  }
+}

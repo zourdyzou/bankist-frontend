@@ -1,0 +1,73 @@
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin verticalHorizontalCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+
+/*?
+  0 - 600         PHONE
+  600 - 900       TABLET PORTRAIT
+  900 - 1200      TABLET LANDSCAPE
+  [1200 - 1800]   IS WHERE OUR NORMAL STYLES APPLIED
+  [1800]++++      BIG DESKTOP
+  
+  
+  
+  $breakpoint === Argument choices
+- Phone
+- Tablet Portrait
+- Tablet Landscape
+- Desktop
+- BIG Desktop
+?*/
+
+//! 1em == 16px
+
+@mixin responds($breakpoint) {
+  @if $breakpoint == phoneX {
+    @media (max-width: 25em) {
+      @content; // 600px
+    }
+  }
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content; // 600px
+    }
+  }
+  @if $breakpoint == tabPort {
+    @media (max-width: 56.25em) {
+      @content; // 900px
+    }
+  }
+  @if $breakpoint == tabLand {
+    @media (max-width: 75em) {
+      @content; // 1200px
+    }
+  }
+  @if $breakpoint == desk {
+    @media (min-width: 46.25em) {
+      @content; // 1200px
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 65em) {
+      @content; // 1200px
+    }
+  }
+  @if $breakpoint == bigDesktop {
+    @media (min-width: 112.5em) {
+      @content; // 1800px
+    }
+  }
+}

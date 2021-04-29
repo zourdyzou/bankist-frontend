@@ -1,0 +1,59 @@
+/* FOOTER */
+.footer {
+  padding: 10rem 3rem;
+  background-color: #37383d;
+  position: relative;
+
+  @include responds(phoneX) {
+    padding: 10rem 0;
+    width: 100%;
+  }
+
+  &__nav {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    @include responds(phone) {
+      flex-wrap: wrap;
+      position: absolute;
+      left: 2rem;
+    }
+  }
+
+  &__item {
+    margin-right: 4rem;
+    @include responds(phone) {
+      margin-right: 3rem;
+    }
+  }
+
+  &__link {
+    font-size: 1.6rem;
+    color: #eee;
+    text-decoration: none;
+    @include responds(phone) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__logo {
+    height: 5rem;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    @include responds(phone) {
+      margin-top: 12rem;
+    }
+  }
+
+  &__copyright {
+    font-size: 1.4rem;
+    color: #aaa;
+    text-align: center;
+  }
+
+  &__copyright &__link {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,81 @@
+/* HEADER */
+.header {
+  padding: 0 3rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  @include responds(tabPort) {
+    height: 70vh;
+  }
+
+  @include responds(phone) {
+    height: 100vh;
+  }
+
+  &__title {
+    flex: 1;
+    max-width: 115rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    row-gap: 3rem;
+    align-content: center;
+    justify-content: center;
+    align-items: start;
+    justify-items: start;
+
+    @include responds(tabPort) {
+      position: absolute;
+      top: 30rem;
+      width: 80rem;
+      // margin-bottom: 0;
+    }
+
+    @include responds(phone) {
+      // grid-template-columns: repeat(2, minmax(150px, 1fr));
+      position: absolute;
+      top: 15rem;
+      display: block;
+      width: 50rem;
+      padding: 5rem;
+      // margin: 5rem;
+    }
+  }
+  &__img {
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+    transform: translateY(-6rem);
+
+    @include responds(tabPort) {
+      width: 35rem;
+      transform: translate(10%, -5%);
+    }
+    @include responds(phone) {
+      display: inline-block;
+      position: absolute;
+      top: 55rem;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 65%;
+    }
+  }
+}
+
+.highlight {
+  position: relative;
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    transform: scale(1.07, 1.05) skewX(-15deg);
+    background-image: $gradient-primary;
+  }
+}

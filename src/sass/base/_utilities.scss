@@ -1,0 +1,53 @@
+.u-margin__bottom-medium {
+  margin-bottom: 6rem;
+}
+.u-margin__bottom-small {
+  margin-bottom: 4rem;
+}
+
+.u-signup__important--header {
+  color: #fff;
+  text-align: center;
+}
+.u-signup__important--btn {
+  font-size: 1.9rem;
+  padding: 2rem 5rem;
+}
+
+.u-operations__tab--1 {
+  background-color: $color-secondary;
+}
+
+.u-operations__tab--1:hover {
+  background-color: $color-secondary-darker;
+}
+
+.u-operations__tab--3 {
+  background-color: $color-tertiary;
+  margin: 0;
+}
+
+.u-operations__tab--3:hover {
+  background-color: $color-tertiary-darker;
+}
+
+.u-navigation__item--margintop {
+  margin-top: 7rem;
+}
+
+.u-none {
+  display: none;
+}
+
+.u-btn-special {
+  background-color: $color-secondary-darker;
+}
+
+// .special-utils {
+//   @include responds(phone) {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+// }

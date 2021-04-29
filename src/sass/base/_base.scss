@@ -1,0 +1,48 @@
+/*!-====================  UNIVERSAL   =============================-*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /*- .625  *  16 -*/
+  scroll-behavior: smooth;
+
+  //! ALWAYS PUT THE LARGER ONE  FIRST THEN THE SMALLER ONE
+  @include responds(tabLand) {
+    // width < 1200px
+    font-size: 56.25%; //? 1rem === 9px > 9/16 = 56.25%
+  }
+  @include responds(tabPort) {
+    // width < 900px
+    font-size: 50%; //? 1rem === 8px > 8/16 = 50%
+  }
+  @include responds(bigDesktop) {
+    font-size: 75%; //? 1rem === 12px > 12/16 = .75 === 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  // padding: 3rem;
+  @include responds(tabPort) {
+    padding: 0;
+  }
+  @include responds(phone) {
+    padding: 0;
+  }
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  background-color: #f3f3f3;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

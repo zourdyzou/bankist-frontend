@@ -1,0 +1,64 @@
+.features {
+  display: grid;
+  /* grid-template-columns: repeat(120px, minmax(1fr, 180px)); */
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 0 12rem;
+
+  @include responds(phone) {
+    grid-template-columns: repeat(1, minmax(180px, 1fr));
+    gap: 4rem;
+    margin: 0 2rem;
+  }
+
+  &__img {
+    width: 100%;
+
+    @include responds(phone) {
+      &--2 {
+        grid-row: 3 / 4;
+      }
+    }
+  }
+
+  &__responsive {
+    @include responds(phone) {
+      font-size: 1.7rem;
+    }
+  }
+
+  &__feature {
+    align-self: center;
+    justify-self: center;
+    width: 70%;
+    font-size: 1.5rem;
+
+    @include responds(phone) {
+      &--2 {
+        grid-row: 4 / 5;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-primary-opacity;
+    height: 5.5rem;
+    width: 5.5rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+  }
+
+  &__icon svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: $color-primary;
+  }
+
+  &__header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
