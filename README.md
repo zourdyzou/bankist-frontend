@@ -39,10 +39,24 @@ Start the server
   npm run start
 ```
 
-<center><img alt="bankist-easy-to-share" src="./src/img/ss.png" width="450"></center>
+## Screenshot Project
+
+<center><img alt="bankist-easy-to-share" src="./src/img/ss.png" width="500" height="500"></center>
 
 ## Tech Stack
 
 🚀**Client:** HTML5, CSS3, SASS, JAVASCRIPT
 
 🚀**Server:** Node, Gunicorn
+
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+## Authors
+
+[zourdycodes](https://zourdycodes.netlify.app/)
