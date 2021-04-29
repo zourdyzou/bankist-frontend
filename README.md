@@ -41,7 +41,7 @@ Start the server
 
 ## Screenshot Project
 
-<center><img alt="bankist-easy-to-share" src="./src/img/ss.png" width="500" height="500"></center>
+<center><img alt="bankist-easy-to-share" src="./src/img/ss.png" width="450" height="400"></center>
 
 ## Tech Stack
 
