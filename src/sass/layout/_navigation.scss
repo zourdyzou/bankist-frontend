@@ -11,16 +11,13 @@
 
   @include responds(phone) {
     padding: 6rem 1rem;
+    // margin-left: -4rem;
   }
 
   @include responds(tabPort) {
     padding: 6rem 2rem;
   }
   /* nav and stickly class at the same time */
-  &.sticky {
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.95);
-  }
 
   &__logo {
     height: 4.5rem;
@@ -159,5 +156,17 @@
   cursor: pointer;
   @include responds(desk) {
     display: none;
+  }
+  @include responds(phone) {
+  }
+}
+
+.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+
+  @include responds(phone) {
+    display: none;
+    visibility: hidden;
   }
 }

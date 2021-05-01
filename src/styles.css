@@ -700,9 +700,6 @@ img {
   @media (max-width: 56.25em) {
     .nav {
       padding: 6rem 2rem; } }
-  .nav.sticky {
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.95); }
   .nav__logo {
     height: 4.5rem;
     transition: all 0.3s; }
@@ -804,6 +801,14 @@ img {
   @media (min-width: 46.25em) {
     .menu__toggle {
       display: none; } }
+
+.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95); }
+  @media (max-width: 37.5em) {
+    .sticky {
+      display: none;
+      visibility: hidden; } }
 
 .section {
   padding: 15rem 3rem;
