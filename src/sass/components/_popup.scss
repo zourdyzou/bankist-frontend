@@ -98,4 +98,14 @@
   color: #bbb;
   font-size: 1.5rem;
   font-weight: 400;
+  padding: 0 10rem;
+  position: fixed;
+  bottom: 0;
+  z-index: 10000;
+}
+
+.btn-close-cookie {
+  @include responds(phone) {
+    padding: 0 1rem;
+  }
 }

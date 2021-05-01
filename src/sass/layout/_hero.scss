@@ -14,6 +14,10 @@
     height: 100vh;
   }
 
+  @include responds(phoneX) {
+    height: 115vh;
+  }
+
   &__title {
     flex: 1;
     max-width: 115rem;

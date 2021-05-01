@@ -49,6 +49,26 @@
   }
 }
 
+.btn-cookie {
+  display: inline-block;
+  background-color: $color-primary;
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 1.25rem 4.5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $color-primary-darker;
+  }
+  @include responds(phone) {
+    padding: 1rem 4.5rem;
+    font-size: 1.5rem;
+  }
+}
+
 /* This is BAD for accessibility! Don't do in the real world! */
 button:focus {
   outline: none;

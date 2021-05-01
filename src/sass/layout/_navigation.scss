@@ -89,6 +89,10 @@
     top: 2.3rem;
     right: 1.5rem;
     cursor: pointer;
+    @include responds(phoneX) {
+      top: 3rem;
+      right: 3rem;
+    }
   }
 
   &__links {
