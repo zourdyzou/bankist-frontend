@@ -8,7 +8,6 @@ const menuBtn = document.getElementById('toggle-menu');
 const nav = document.querySelector('.navigation');
 const exitBtn = document.getElementById('nav-exit');
 const navLink = document.querySelectorAll('.nav-link');
-const header = document.querySelector('.header');
 const cookie = document.createElement('div');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.getElementById('section--1');
@@ -16,6 +15,7 @@ const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 const navHead = document.querySelector('.nav');
+const header = document.querySelector('.header');
 
 ///////////////////////////////////////
 // Modal window
@@ -169,19 +169,45 @@ navHead.addEventListener('mouseover', handleHover.bind(0.5));
 navHead.addEventListener('mouseout', handleHover.bind(1));
 
 /////-------------------------------------/////
-//! STICKY NAVIGATION
+//! STICKY NAVIGATION with Intersection Observer API
 ////-------------------------------------/////
 
-const initCoords = section1.getBoundingClientRect();
-// console.log(initCoords);
+// const initCoords = section1.getBoundingClientRect();
 
-window.addEventListener('scroll', function () {
-  // console.log(window.scrollY);
+// window.addEventListener('scroll', function () {
+//   if (window.scrollY > initCoords.top) {
+//     navHead.classList.add('sticky');
+//   } else navHead.classList.remove('sticky');
+// });
 
-  if (window.scrollY > initCoords.top) {
-    navHead.classList.add('sticky');
-  } else navHead.classList.remove('sticky');
+/**
+ * * INTERSECTION OBSERVER API:
+ * * allow our code to observe changes to a certain target of element intersect another element or intersect the viewport
+ *
+ * ? threshold: this is basically the percentage of intersection at which the observer callback will be called
+ * ? root: viewport
+ */
+
+const navHeight = nav.getBoundingClientRect().height;
+console.log(navHeight);
+const stickyNav = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) navHead.classList.add('sticky');
+  else navHead.classList.remove('sticky');
+  console.log(entry);
+
+  // entries.forEach(e => {
+  // });
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `${navHeight - 1100}px`,
 });
+
+headerObserver.observe(header);
 
 //////////////////////////////////////////
 /////////////////////////////////////////
