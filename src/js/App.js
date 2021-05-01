@@ -204,7 +204,7 @@ const stickyNav = function (entries) {
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
-  rootMargin: `${navHeight - 1100}px`,
+  rootMargin: `-90px`,
 });
 
 headerObserver.observe(header);
@@ -238,12 +238,10 @@ btnCookie.addEventListener('click', e => {
 //? STYLES
 cookie.style.backgroundColor = '#37383d';
 cookie.style.width = '120%';
-
 cookie.style.height =
   Number.parseFloat(getComputedStyle(cookie).height, 10) + 30 + 'px';
 
 //? cookie showed up
-
 setTimeout(() => {
   cookie.classList.remove('hidden');
 }, 5000);
