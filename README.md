@@ -2,6 +2,8 @@
 
 > _Bankist_ is a new modern of save your cryto coins without any worries
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9e4a7551-0948-43a0-b349-5b2f0462dd6b/deploy-status)](https://app.netlify.com/sites/bankist-crypto/deploys)
+
 # 🐱‍🏍 Bankist Landing Page
 
 Greetings! Fellow Developer 💥, Bankist is a new modern era of draw some money with cryptocurrency ⚖.
@@ -18,7 +20,7 @@ pure Vanilla JavaScript.
 Clone the project
 
 ```bash
-  git clone https://github.com/zourdycodes/bankist-frontend.gits
+  git clone https://github.com/zourdycodes/bankist-frontend.git
 ```
 
 Go to the project directory
