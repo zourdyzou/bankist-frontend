@@ -269,6 +269,11 @@ const imgObserver = new IntersectionObserver(loadingImg, {
 imgTargets.forEach(img => {
   imgObserver.observe(img);
 });
+
+/////-------------------------------------/////
+//! BUILD SLIDER COMPONENTS: TESTIMONIALS REVIEW
+////-------------------------------------/////
+
 /////-------------------------------------/////
 //! CREATING AND INSERTING ELEMENT
 //! CREATING COOKIES MESSAGE AND CONSENT
