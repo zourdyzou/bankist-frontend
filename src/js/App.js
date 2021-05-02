@@ -296,15 +296,18 @@ const slider = function () {
 
   //! ACTIVE DOTS
   const activeDots = function (slide) {
+    //! 1) we remove all the active class
     document
       .querySelectorAll('.dots__dot')
       .forEach(dot => dot.classList.remove('dots__dot--active'));
 
+    //? we add active class based on data-slide
     document
       .querySelector(`.dots__dot[data-slide="${slide}"]`)
       .classList.add('dots__dot--active');
   };
 
+  //* 0%, 100%, 200%, 300% --> depends on how much slide
   const goToSlide = function (slide) {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
@@ -334,7 +337,7 @@ const slider = function () {
     activeDots(currSlide);
   };
 
-  // INIT
+  // INITialize
   const init = function () {
     goToSlide(0);
     createDots();
