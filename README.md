@@ -3,7 +3,6 @@
 > _Bankist_ is a new modern of save your cryto coins without any worries
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9e4a7551-0948-43a0-b349-5b2f0462dd6b/deploy-status)](https://app.netlify.com/sites/bankist-crypto/deploys)
-git pul
 
 # 🐱‍🏍 Bankist Landing Page
 
