@@ -97,6 +97,10 @@
   transform: translateX(-50%);
   display: flex;
 
+  @include responds(phone) {
+    bottom: 0;
+  }
+
   &__dot {
     border: none;
     background-color: #b9b9b9;

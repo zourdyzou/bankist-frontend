@@ -221,6 +221,9 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex; }
+  @media (max-width: 37.5em) {
+    .dots {
+      bottom: 0; } }
   .dots__dot {
     border: none;
     background-color: #b9b9b9;

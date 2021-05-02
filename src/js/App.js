@@ -274,6 +274,95 @@ imgTargets.forEach(img => {
 //! BUILD SLIDER COMPONENTS: TESTIMONIALS REVIEW
 ////-------------------------------------/////
 
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  //* current Slide
+  let currSlide = 0;
+  const maxSlide = slides.length;
+
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  //! ACTIVE DOTS
+  const activeDots = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  //? NEXT SLIDE
+  const nextSlide = function () {
+    if (currSlide === maxSlide - 1) {
+      currSlide = 0;
+    } else {
+      currSlide++;
+    }
+
+    goToSlide(currSlide);
+    activeDots(currSlide);
+  };
+  //? PREV SLIDE
+  const prevSlide = function () {
+    if (currSlide === 0) {
+      currSlide = maxSlide - 1; //! it stops when there is nothing come after
+    } else {
+      currSlide--;
+    }
+
+    goToSlide(currSlide);
+    activeDots(currSlide);
+  };
+
+  // INIT
+  const init = function () {
+    goToSlide(0);
+    createDots();
+    activeDots(0);
+  };
+
+  init();
+
+  btnLeft.addEventListener('click', prevSlide);
+  btnRight.addEventListener('click', nextSlide);
+
+  document.addEventListener('keydown', function (e) {
+    console.log(e.key);
+
+    if (e.key === 'ArrowRight') nextSlide();
+    e.key === 'ArrowLeft' && prevSlide();
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activeDots(slide);
+    }
+  });
+};
+
+slider();
 /////-------------------------------------/////
 //! CREATING AND INSERTING ELEMENT
 //! CREATING COOKIES MESSAGE AND CONSENT
