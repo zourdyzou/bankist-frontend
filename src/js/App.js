@@ -16,6 +16,8 @@ const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 const navHead = document.querySelector('.nav');
 const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
+const imgTargets = document.querySelectorAll('img[data-src]');
 
 ///////////////////////////////////////
 // Modal window
@@ -172,14 +174,6 @@ navHead.addEventListener('mouseout', handleHover.bind(1));
 //! STICKY NAVIGATION with Intersection Observer API
 ////-------------------------------------/////
 
-// const initCoords = section1.getBoundingClientRect();
-
-// window.addEventListener('scroll', function () {
-//   if (window.scrollY > initCoords.top) {
-//     navHead.classList.add('sticky');
-//   } else navHead.classList.remove('sticky');
-// });
-
 /**
  * * INTERSECTION OBSERVER API:
  * * allow our code to observe changes to a certain target of element intersect another element or intersect the viewport
@@ -189,16 +183,13 @@ navHead.addEventListener('mouseout', handleHover.bind(1));
  */
 
 const navHeight = nav.getBoundingClientRect().height;
-console.log(navHeight);
+
 const stickyNav = function (entries) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) navHead.classList.add('sticky');
   else navHead.classList.remove('sticky');
-  console.log(entry);
-
-  // entries.forEach(e => {
-  // });
+  // console.log(entry);
 };
 
 const headerObserver = new IntersectionObserver(stickyNav, {
@@ -209,15 +200,80 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 
-//////////////////////////////////////////
-/////////////////////////////////////////
-////////////////////////////////////////
+/////-------------------------------------/////
+//! REVEALING ELEMENT WHEN SCROLLING
+////-------------------------------------/////
 
-//////////////////////////////////
-//////////////////////////////////
-/////////////////////////////////
+//?  using libraries
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '30px',
+  duration: 2000,
+  reset: true,
+  mobile: true,
+});
 
+sr.reveal(
+  `.header__title, .header__img, .features__img, .features__feature, .section__title, .operations__tab, .operations__content, .slider, .section--sign-up`,
+  {
+    interval: 200,
+  }
+);
+
+//* only javascript => vanilla js using IntersectionObserver API
+
+const revealObserve = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+
+  //! we use target for targeting what the section is intersecting
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealObserve, {
+  root: null,
+  threshold: 0.15,
+});
+
+// allSections.forEach(function (sec) {
+//   sectionObserver.observe(sec);
+//   sec.classList.add('section--hidden');
+// });
+
+/////-------------------------------------/////
+//! LAZY LOADING IMAGES
+////-------------------------------------/////
+const loadingImg = function (entries, observer) {
+  const [entry] = entries;
+
+  // guard clause
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+
+  //* remove the lazy__img class/blur props
+  entry.target.addEventListener('load', () => {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadingImg, {
+  root: null,
+  threshold: 0,
+});
+
+imgTargets.forEach(img => {
+  imgObserver.observe(img);
+});
+/////-------------------------------------/////
 //! CREATING AND INSERTING ELEMENT
+//! CREATING COOKIES MESSAGE AND CONSENT
+////-------------------------------------/////
+
 cookie.classList.add('cookie-message');
 cookie.classList.add('hidden');
 cookie.innerHTML =
@@ -246,34 +302,8 @@ setTimeout(() => {
   cookie.classList.remove('hidden');
 }, 5000);
 
-//////////////////////////////////
-//////////////////////////////////
-/////////////////////////////////
-
-////////////////////////////////////////////////////
-///////////////////////////////////////////////////
-//////////////////////////////////////////////////
-
-///////////////////////////////////////
-//! TYPES OF EVENTS AND EVENTS      //
-//!          HANDLERS              //
-////////////////////////////////////
-
-// const h1 = document.querySelector('h1');
-// const alertH1 = function (e) {
-//   alert('onmouseeneter: you are entering heading dude!');
-
-//   h1.removeEventListener('mouseenter', alertH1);
-// };
-
-// h1.onclick = function (e) {
-//   alert('onmouseeneter: you are entering heading dude!');
-// };
-
-// h1.addEventListener('mouseenter', alertH1);
-
 /////-------------------------------------/////
-//! EVENT PROPAGATION: BUBBLING AND CAPTURING
+//! GENERATE RANDOM COLOR
 ////-------------------------------------/////
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
@@ -281,65 +311,3 @@ const randomColor = () =>
   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
 
 console.log(randomColor());
-
-/**
- *! e.target === to first DOM selector which is .nav__link
- *! all the event target pointing to .nav__link
- *? e.currentTarget === this
-  //! HOW TO STOP PROPAGATION
-  //? ONLY USE FOR DEBUGGING FOR BIG APPLICATION
-  e.stopPropagation();
-  
- ** addEventListener can take 2 arguments for capturing phase
- ** it takes boolean => true and false, false is default
- */
-
-// document.querySelector('.nav__link').addEventListener('click', function (e) {
-//   this.style.backgroundColor = randomColor();
-//   console.log('LINK', e.target, e.currentTarget);
-
-//   //! HOW TO STOP PROPAGATION
-//   //? ONLY USE FOR DEBUGGING FOR BIG APPLICATION
-//   // e.stopPropagation();
-// });
-
-// document.querySelector('.nav__links').addEventListener('click', function (e) {
-//   this.style.backgroundColor = randomColor();
-//   console.log('LINKS', e.target, e.currentTarget);
-// });
-
-// document.querySelector('.nav').addEventListener('click', function (e) {
-//   this.style.backgroundColor = randomColor();
-//   console.log('NAV', e.target, e.currentTarget);
-// });
-
-/////-------------------------------------/////
-//! DOM TRAVERSING
-////-------------------------------------/////
-/*
-const h1 = document.querySelector('h1');
-
-//? GOING DOWNWARDS: Child
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
-h1.firstElementChild.style.color = 'white';
-h1.lastElementChild.style.color = 'orangered';
-
-//? GOING UPWARDS: Parents
-console.log(h1.parentNode); // same
-console.log(h1.parentElement); // same
-
-h1.closest('header');
-
-//? GOING SIDEWAYS: Siblings
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
-
-console.log(h1.parentElement.children); // => access all the siblings
-
-//* play a bit
-[...h1.parentElement.children].forEach(el => {
-  if (el !== h1) el.style.transform = 'scale(0.5)';
-});
-*/
