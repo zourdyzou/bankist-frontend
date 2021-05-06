@@ -836,3 +836,6 @@ img {
     @media (max-width: 37.5em) {
       .section__header {
         font-size: 3rem; } }
+
+.expand {
+  transform: scale(2.5); }

@@ -1,3 +1,4 @@
+// import Hammer from 'hammerjs';
 'use strict';
 
 const modal = document.querySelector('.modal');
@@ -18,6 +19,8 @@ const navHead = document.querySelector('.nav');
 const header = document.querySelector('.header');
 const allSections = document.querySelectorAll('.section');
 const imgTargets = document.querySelectorAll('img[data-src]');
+const logo = document.getElementById('logo');
+const img = document.querySelectorAll('.features__img');
 
 ///////////////////////////////////////
 // Modal window
@@ -408,3 +411,14 @@ const randomColor = () =>
   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
 
 // console.log(randomColor());
+
+// HAMMER JS
+
+const gesture = new Hammer(img);
+
+gesture.on('press', function (e) {
+  e.target.classList.toggle('expand');
+  console.log('expand');
+});
+
+gesture.forEach;
