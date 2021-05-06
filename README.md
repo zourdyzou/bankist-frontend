@@ -1,6 +1,6 @@
 <img alt="bankist-easy-to-share" src="./src/img/logo-removebg-preview.png" width="350">
 
-> _Bankist_ is a new modern of save your cryto coins without any worries
+> _Bankist_ is a new modern way of save your crypto coins without any worries
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9e4a7551-0948-43a0-b349-5b2f0462dd6b/deploy-status)](https://app.netlify.com/sites/bankist-crypto/deploys)
 
@@ -38,7 +38,7 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run start
+  npm start
 ```
 
 ## Screenshot Project
@@ -51,6 +51,7 @@ Start the server
 
 🚀**Server:** Node, Gunicorn
 
+🚀**Libraries & API:** ScrollReveal, CommonJS, IntersectionObeserver API
 ## Contributing
 
 Contributions are always welcome!
